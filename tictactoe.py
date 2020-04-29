@@ -6,28 +6,28 @@ win = False
 
 def check_if_win(board):
     global win
-    if board[1] is board[2] and board[2] is board[3]:
+    if board[1] == board[2] == board[3] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[4] == board[5] and board[5] == board[6]:
+    elif board[4] == board[5]  == board[6] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[7] == board[8] and board[8] == board[9]:
+    elif board[7] == board[8] == board[9] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[1] == board[4] and board[4] == board[7]:
+    elif board[1] == board[4]  == board[7] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[2] == board[5] and board[5] == board[8]:
+    elif board[2] == board[5] == board[8] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[3] == board[6] and board[6] == board[9]:
+    elif board[3] == board[6] == board[9] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[1] == board[5] and board[5] == board[9]:
+    elif board[1] == board[5] == board[9] !='':
         print(f"You win {current_player}")
         win = True
-    elif board[3] == board[5] and board[5] == board[7]:
+    elif board[3] == board[5] == board[7] !='':
         print(f"You win {current_player}")
         win = True
     else:
@@ -77,7 +77,7 @@ def move():
         if current_player == "Player 1":
             print(f"Your move {current_player}")
             choice = input(f'Hello {current_player}, choose 1-9?')
-            if board[int(choice)] == "":
+            if board[int(choice)] == "" != "X" !="O":
                 board.insert(int(choice), player1_marker)
                 print_board(board)
                 check_if_win(board)
@@ -87,6 +87,7 @@ def move():
             else:
                 print('Ooops... already taked, try again')
                 move()
+            current_player = "Player 2"
         else:
             if current_player == "Player 2":
                 print(f"Your move {current_player}, choose 1-9")
@@ -100,6 +101,12 @@ def move():
                 else:
                     print('Ooops... already taked, try again')
                     move()
+            current_player = "Player 1"
+        
+    if current_player == "Player 1":
+        current_player = "Player 2"
+    else:
+        current_player = "Player 1"
 
 
 choose_marker()
